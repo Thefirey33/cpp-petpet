@@ -50,6 +50,12 @@ jobs:
     - name: Submodules
       run: >
         git submodule update --init --recursive
+
+    - name: Get GTK3 for Linux.
+      if: runner.os != 'Windows'
+      run: >
+        sudo apt-get install libgtk-3-dev libgtk-3-0
+      
         
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
